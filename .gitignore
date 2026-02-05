@@ -1,0 +1,35 @@
+# --- NexaOS Build Artifacts ---
+*.iso
+*.img
+*.squashfs
+*.ext4
+iso/
+
+# --- Large System Binaries ---
+# We ignore these because they can be re-installed via apt
+rootfs/var/cache/apt/archives/*.deb
+rootfs/var/lib/apt/lists/*
+rootfs/usr/bin/
+rootfs/usr/sbin/
+rootfs/usr/lib/
+
+# --- Temporary/Lock Files ---
+*.log
+*.tmp
+rootfs/tmp/*
+rootfs/run/*
+rootfs/dev/*
+rootfs/proc/*
+rootfs/sys/*
+
+# --- Personal/Hidden Files ---
+.DS_Store
+.swp
+*~
+
+# --- Exceptions (KEEP THESE) ---
+# We want to keep your custom scripts and configs even if they are in ignored folders
+!rootfs/usr/local/bin/
+!rootfs/etc/
+!rootfs/usr/share/backgrounds/
+!rootfs/usr/share/themes/
