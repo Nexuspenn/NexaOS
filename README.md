@@ -1,5 +1,6 @@
 # NexaOS
-
+Please note that all of the source code is still being uploaded to github for updates to be stablized.
+________________________
 NexaOS utilizes unmodified Debian packages. The source code for all packages is accessible at https://sources.debian.org/ or via the command `apt-get source <package-name>`.
 
 NexaOS is incompatible with secure boot. If you have Windows BitLocker enabled but secure boot is disabled, you’ll be prompted to enter a recovery key. To fix this, turn on secure boot. 
