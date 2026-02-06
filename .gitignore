@@ -1,35 +1,62 @@
-# --- NexaOS Build Artifacts ---
+# ==========================================
+# NexaOS Source Code GitIgnore
+# ==========================================
+
+# --- Build Outputs (The Bloat) ---
+# Never track the final OS images or large binary outputs
+build/
+bin/
+dist/
+out/
 *.iso
 *.img
+*.qcow2
+*.vmdk
 *.squashfs
 *.ext4
-iso/
+*.tar.gz
 
-# --- Large System Binaries ---
-# We ignore these because they can be re-installed via apt
-rootfs/var/cache/apt/archives/*.deb
-rootfs/var/lib/apt/lists/*
+# --- Tool-Specific Build Junk ---
+# If you use compilers or packaging tools
+*.o
+*.a
+*.so
+*.ko
+*.la
+*.pyc
+__pycache__/
+node_modules/
+
+# --- Temporary Mounting Points ---
+# If your build script mounts a rootFS, ignore the live mounts
+mnt/
+loop*/
+dev/
+proc/
+sys/
+run/
+
+# --- Local Development Secrets ---
+# Don't accidentally leak your SSH keys or build-server passwords
+.env
+secret.key
+*.pem
+credentials.*
+
+# --- Editor & OS Trash ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+*.log
+
+# --- Specific RootFS Overrides ---
+# If you keep a 'template' rootfs in your source, ignore the 
+# system binaries but keep your custom scripts.
 rootfs/usr/bin/
 rootfs/usr/sbin/
 rootfs/usr/lib/
-
-# --- Temporary/Lock Files ---
-*.log
-*.tmp
-rootfs/tmp/*
-rootfs/run/*
-rootfs/dev/*
-rootfs/proc/*
-rootfs/sys/*
-
-# --- Personal/Hidden Files ---
-.DS_Store
-.swp
-*~
-
-# --- Exceptions (KEEP THESE) ---
-# We want to keep your custom scripts and configs even if they are in ignored folders
 !rootfs/usr/local/bin/
 !rootfs/etc/
-!rootfs/usr/share/backgrounds/
-!rootfs/usr/share/themes/
