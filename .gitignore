@@ -60,3 +60,5 @@ rootfs/usr/sbin/
 rootfs/usr/lib/
 !rootfs/usr/local/bin/
 !rootfs/etc/
+security_scan_report_*.txt
+security_scanner.sh
