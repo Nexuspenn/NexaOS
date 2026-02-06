@@ -1,5 +1,6 @@
 # NexaOS
-Please note that all of the source code is still being uploaded to github for updates to be stablized.
+Please note that all of the source code is made with the assistance of claude AI that is checked by a human then pushed, I can edit code but I cannot write thousands of lines. I respect those who can do this. I can edit it and find errors I just cant write it.
+-Kenneth
 ________________________
 NexaOS utilizes unmodified Debian packages. The source code for all packages is accessible at https://sources.debian.org/ or via the command `apt-get source <package-name>`.
 
