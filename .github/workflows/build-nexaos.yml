@@ -1,0 +1,129 @@
+name: NexaOS Build and Validate
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate NexaOS Structure
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Check rootfs structure
+      run: |
+        echo "Checking NexaOS rootfs structure..."
+        if [ -d "rootfs" ]; then
+          echo "✓ rootfs directory found"
+        else
+          echo "✗ rootfs directory missing"
+          exit 1
+        fi
+        
+        if [ -d "rootfs/etc" ]; then
+          echo "✓ rootfs/etc directory found"
+        else
+          echo "✗ rootfs/etc directory missing"
+          exit 1
+        fi
+        
+        echo "✓ Basic structure validation passed"
+    
+    - name: Validate system files
+      run: |
+        echo "Checking essential system files..."
+        
+        # Check for passwd file
+        if [ -f "rootfs/etc/passwd" ]; then
+          echo "✓ /etc/passwd exists"
+          echo "User count: $(wc -l < rootfs/etc/passwd)"
+        fi
+        
+        # Check for shadow file
+        if [ -f "rootfs/etc/shadow" ]; then
+          echo "✓ /etc/shadow exists"
+        fi
+        
+        # Check for hostname
+        if [ -f "rootfs/etc/hostname" ]; then
+          echo "✓ /etc/hostname exists"
+          echo "Hostname: $(cat rootfs/etc/hostname)"
+        fi
+    
+    - name: Security check - no private keys
+      run: |
+        echo "Scanning for private keys that shouldn't be in repo..."
+        
+        # Check for SSH private keys (should not exist)
+        if find rootfs -name "id_rsa" -o -name "id_dsa" -o -name "id_ed25519" | grep -q .; then
+          echo "✗ WARNING: SSH private keys found in repository!"
+          find rootfs -name "id_rsa" -o -name "id_dsa" -o -name "id_ed25519"
+          exit 1
+        else
+          echo "✓ No SSH private keys found"
+        fi
+        
+        # Check for .pem files in sensitive locations
+        if find rootfs/etc/ssh -name "*.pem" 2>/dev/null | grep -q .; then
+          echo "✗ WARNING: PEM files found in /etc/ssh!"
+          exit 1
+        else
+          echo "✓ No PEM files in sensitive locations"
+        fi
+    
+    - name: Check for README
+      run: |
+        if [ -f "README.md" ]; then
+          echo "✓ README.md exists"
+          echo "README size: $(wc -l < README.md) lines"
+        else
+          echo "⚠ README.md not found"
+        fi
+    
+    - name: List installed packages (if available)
+      run: |
+        if [ -f "rootfs/var/lib/dpkg/status" ]; then
+          echo "Debian packages installed:"
+          grep "^Package:" rootfs/var/lib/dpkg/status | wc -l
+        fi
+    
+    - name: Generate build report
+      if: always()
+      run: |
+        echo "==================================="
+        echo "NexaOS Build Report"
+        echo "==================================="
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Workflow run: ${{ github.run_number }}"
+        echo ""
+        echo "Directory structure:"
+        tree -L 2 -d rootfs || ls -la rootfs/
+        echo ""
+        echo "✓ Validation complete"
+
+  size-check:
+    name: Check Repository Size
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Calculate sizes
+      run: |
+        echo "Repository size breakdown:"
+        du -sh .
+        echo ""
+        echo "Largest directories:"
+        du -h --max-depth=2 rootfs 2>/dev/null | sort -rh | head -20 || echo "rootfs not found"
+        echo ""
+        echo "Total files:"
+        find . -type f | wc -l
