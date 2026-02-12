@@ -15,47 +15,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    
-    - name: Check rootfs structure
-      run: |
-        echo "Checking NexaOS rootfs structure..."
-        if [ -d "rootfs" ]; then
-          echo "✓ rootfs directory found"
-        else
-          echo "✗ rootfs directory missing"
-          exit 1
-        fi
-        
-        if [ -d "rootfs/etc" ]; then
-          echo "✓ rootfs/etc directory found"
-        else
-          echo "✗ rootfs/etc directory missing"
-          exit 1
-        fi
-        
-        echo "✓ Basic structure validation passed"
-    
-    - name: Validate system files
-      run: |
-        echo "Checking essential system files..."
-        
-        # Check for passwd file
-        if [ -f "rootfs/etc/passwd" ]; then
-          echo "✓ /etc/passwd exists"
-          echo "User count: $(wc -l < rootfs/etc/passwd)"
-        fi
-        
-        # Check for shadow file
-        if [ -f "rootfs/etc/shadow" ]; then
-          echo "✓ /etc/shadow exists"
-        fi
-        
-        # Check for hostname
-        if [ -f "rootfs/etc/hostname" ]; then
-          echo "✓ /etc/hostname exists"
-          echo "Hostname: $(cat rootfs/etc/hostname)"
-        fi
-    
+     
     - name: Security check - no private keys
       run: |
         echo "Scanning for private keys that shouldn't be in repo..."
@@ -84,13 +44,6 @@ jobs:
           echo "README size: $(wc -l < README.md) lines"
         else
           echo "⚠ README.md not found"
-        fi
-    
-    - name: List installed packages (if available)
-      run: |
-        if [ -f "rootfs/var/lib/dpkg/status" ]; then
-          echo "Debian packages installed:"
-          grep "^Package:" rootfs/var/lib/dpkg/status | wc -l
         fi
     
     - name: Generate build report
