@@ -58,7 +58,6 @@ jobs:
         echo "Workflow run: ${{ github.run_number }}"
         echo ""
         echo "Directory structure:"
-        tree -L 2 -d rootfs || ls -la rootfs/
         echo ""
         echo "✓ Validation complete"
 
