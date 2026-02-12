@@ -1,8 +1,0 @@
-deb http://debian.nexuspenn.org/debian/ bookworm main contrib non-free non-free-firmware
-deb-src http://debian.nexuspenn.org/debian/ bookworm main contrib non-free non-free-firmware
-
-deb http://debian.nexuspenn.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
-deb-src http://debian.nexuspenn.org/debian-security/ bookworm-security main contrib non-free non-free-firmware
-
-deb http://debian.nexuspenn.org/debian/ bookworm-updates main contrib non-free non-free-firmware
-deb-src http://debian.nexuspenn.org/debian/ bookworm-updates main contrib non-free non-free-firmware
