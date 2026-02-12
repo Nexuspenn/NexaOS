@@ -1,4 +1,5 @@
 # NexaOS
+Update to be released this weekend
 Please note that all of the source code is made with the assistance of claude AI that is checked by a human then pushed, I can edit code but I cannot write thousands of lines. I respect those who can do this. I can edit it and find errors I just cant write it.
 -Kenneth
 ________________________
