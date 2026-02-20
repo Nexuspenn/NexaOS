@@ -1,0 +1,14 @@
+[Unit]
+Description=NexaOS First Boot Setup
+After=network.target
+ConditionPathExists=!/var/lib/nexaos/.first-boot-complete
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/nexaos-first-boot.sh
+StandardInput=tty
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
