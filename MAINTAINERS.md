@@ -16,11 +16,11 @@ Aliases: N/A
 Email: Miles.Kaminsky@nexuspenn.org
 _____________________________________________
 Hardware Manager:
-Name: Logan Patullo 
+Name: Logan  
 
 Aliases: N/A
 
-Email: Logan.Patullo@nexuspenn.org
+Email: N/A
 _____________________________________________
 University Mirror(s)
 Oregon State University 
