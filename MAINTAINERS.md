@@ -10,7 +10,8 @@ This document lists the individuals responsible for the maintenance of this proj
 | :--- | :--- | :--- |
 | **Overseer** | Kenneth Daily | [Kenneth.Daily@nexuspenn.org](mailto:Kenneth.Daily@nexuspenn.org) |
 | **Design** | Miles Kaminsky | [Miles.Kaminsky@nexuspenn.org](mailto:Miles.Kaminsky@nexuspenn.org) |
-| **Hardware Manager** | Logan Patullo | [Logan.Patullo@nexuspenn.org](mailto:Logan.Patullo@nexuspenn.org) 
+| **Hardware Manager** | Logan Patullo | [Logan.Patullo@nexuspenn.org](mailto:Logan.Patullo@nexuspenn.org) |
+
 ---
 
 ## 🌐 Distribution & Mirrors
@@ -22,13 +23,12 @@ We are grateful to our hosting partners for providing the infrastructure to dist
   * [Access Mirror](https://ftp2.osuosl.org/pub/nexaos/)
   * Status: Primary
 * **Nexus Foundation For Computer Science and Cybersecurity**
-*  [Access Mirror](https://mirror.nexuspenn.org)
+  * [Access Mirror](https://mirror.nexuspenn.org)
   * Status: Primary
-
 
 ### University Partners
 * **Oregon State University**
-* **Nexus Foundation For Computer Science and Cybersecurity.
+* **Nexus Foundation For Computer Science and Cybersecurity**
 
 ---
 
