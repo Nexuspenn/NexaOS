@@ -22,7 +22,7 @@ We are grateful to our hosting partners for providing the infrastructure to dist
   * [Access Mirror](https://ftp2.osuosl.org/pub/nexaos/)
   * Status: Primary
 * **Nexus Foundation For Computer Science and Cybersecurity**
-*   * [Access Mirror](https://mirror.nexuspenn.org)
+*  [Access Mirror](https://mirror.nexuspenn.org)
   * Status: Primary
 
 
