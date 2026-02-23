@@ -28,7 +28,6 @@ We are grateful to our hosting partners for providing the infrastructure to dist
 
 ### University Partners
 * **Oregon State University**
-* **Nexus Foundation For Computer Science and Cybersecurity**
 
 ---
 
