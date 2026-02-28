@@ -1,5 +1,5 @@
 # NexaOS
-# NEXUS NEBULA HAS BEEN RELEASED! 🥳 check github releases or https://mirror.nexuspenn.org/ if its not working. 
+# NEXUS NEBULA XFCE HAS BEEN TAKEN OFF THE MIRROR FOR KERNEL NOT WORKING! ⚠️ check github releases or https://mirror.nexuspenn.org/ if its not working. 
 Please note that all of the source code is made with the assistance of claude AI that is checked by a human then pushed, I can edit code but I cannot write thousands of lines. I respect those who can do this. I can edit it and find errors I just cant write it.
 -Kenneth
 ________________________
