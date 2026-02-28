@@ -7,7 +7,7 @@ set -e
 # Variables
 ################################################################################
 OS_NAME="NexaOS"
-OS_VERSION="1.0"
+OS_VERSION="0.2"
 DEBIAN_RELEASE="bookworm"
 ARCH="amd64"  # Options: amd64, i386, arm64, armhf
 BUILD_DIR="$(pwd)/build"
